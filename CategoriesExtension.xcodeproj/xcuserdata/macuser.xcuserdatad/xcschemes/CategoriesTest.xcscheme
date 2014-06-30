@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63BF8C6A195D553600E703D2"
-               BuildableName = "CategoriesTest.app"
+               BuildableName = "CategoriesExtension.app"
                BlueprintName = "CategoriesExtension"
                ReferencedContainer = "container:CategoriesExtension.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63BF8C85195D553700E703D2"
-               BuildableName = "CategoriesTestTests.xctest"
+               BuildableName = "CategoriesExtensionTests.xctest"
                BlueprintName = "CategoriesExtensionTests"
                ReferencedContainer = "container:CategoriesExtension.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63BF8C6A195D553600E703D2"
-            BuildableName = "CategoriesTest.app"
+            BuildableName = "CategoriesExtension.app"
             BlueprintName = "CategoriesExtension"
             ReferencedContainer = "container:CategoriesExtension.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63BF8C6A195D553600E703D2"
-            BuildableName = "CategoriesTest.app"
+            BuildableName = "CategoriesExtension.app"
             BlueprintName = "CategoriesExtension"
             ReferencedContainer = "container:CategoriesExtension.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63BF8C6A195D553600E703D2"
-            BuildableName = "CategoriesTest.app"
+            BuildableName = "CategoriesExtension.app"
             BlueprintName = "CategoriesExtension"
             ReferencedContainer = "container:CategoriesExtension.xcodeproj">
          </BuildableReference>
