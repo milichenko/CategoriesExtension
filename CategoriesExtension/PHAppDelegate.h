@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CategoriesExtension.h"
-
 @interface PHAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
