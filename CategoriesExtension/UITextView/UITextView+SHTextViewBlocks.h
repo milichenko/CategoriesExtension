@@ -24,37 +24,37 @@ NSString * string);
 
 #pragma mark - Setters
 
--(void)SH_setShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock;
+-(void)completionShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock;
 
--(void)SH_setShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock;
+-(void)completionShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock;
 
--(void)SH_setDidBeginEditingBlock:(SHTextViewBlock)theBlock;
+-(void)completionDidBeginEditingBlock:(SHTextViewBlock)theBlock;
 
--(void)SH_setDidEndEditingBlock:(SHTextViewBlock)theBlock;
+-(void)completionDidEndEditingBlock:(SHTextViewBlock)theBlock;
 
--(void)SH_setShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock;
+-(void)completionShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock;
 
--(void)SH_setDidChangeBlock:(SHTextViewBlock)theBlock;
+-(void)completionDidChangeBlock:(SHTextViewBlock)theBlock;
 
--(void)SH_setDidChangeSelection:(SHTextViewBlock)theBlock;
+-(void)completionDidChangeSelection:(SHTextViewBlock)theBlock;
 
 
 
 #pragma mark - Getters
 
--(SHTextViewPredicateBlock)SH_blockShouldBeginEditing;
+-(SHTextViewPredicateBlock)completionBlockShouldBeginEditing;
 
--(SHTextViewPredicateBlock)SH_blockShouldEndEditing;
+-(SHTextViewPredicateBlock)completionBlockShouldEndEditing;
 
 
--(SHTextViewBlock)SH_blockDidBeginEditing;
+-(SHTextViewBlock)completionBlockDidBeginEditing;
 
--(SHTextViewBlock)SH_blockDidEndEditing;
+-(SHTextViewBlock)completionBlockDidEndEditing;
 
--(SHTextViewRangeReplacementBlock)SH_blockShouldChangeCharactersInRangeWithReplacementText;
+-(SHTextViewRangeReplacementBlock)completionBlockShouldChangeCharactersInRangeWithReplacementText;
 
--(SHTextViewBlock)SH_blockDidChange;
+-(SHTextViewBlock)completionBlockDidChange;
 
--(SHTextViewBlock)SH_blockDidChangeSelection;
+-(SHTextViewBlock)completionBlockDidChangeSelection;
 
 @end

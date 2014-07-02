@@ -161,35 +161,35 @@ SHStaticConstString(SH_blockDidChangeSelection);
 
 #pragma mark - Setters
 
--(void)SH_setShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock; {
+-(void)completionShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockShouldBeginEditing];
 }
 
--(void)SH_setDidBeginEditingBlock:(SHTextViewBlock)theBlock; {
+-(void)completionDidBeginEditingBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidBeginEditing];
 
 }
 
--(void)SH_setShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock; {
+-(void)completionShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockShouldEndEditing];
 
 }
 
--(void)SH_setDidEndEditingBlock:(SHTextViewBlock)theBlock; {
+-(void)completionDidEndEditingBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidEndEditing];
 }
 
--(void)SH_setShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock; {
+-(void)completionShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock; {
   [self setBlock:theBlock
           forKey:SH_blockShouldChangeCharactersInRangeWithReplacementText];
 
 }
 
--(void)SH_setDidChangeBlock:(SHTextViewBlock)theBlock; {
+-(void)completionDidChangeBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidChange];
 }
 
--(void)SH_setDidChangeSelection:(SHTextViewBlock)theBlock; {
+-(void)completionDidChangeSelection:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidChangeSelection];  
 }
 
@@ -198,33 +198,33 @@ SHStaticConstString(SH_blockDidChangeSelection);
 
 #pragma mark - Getters
 
--(SHTextViewPredicateBlock)SH_blockShouldBeginEditing; {
+-(SHTextViewPredicateBlock)completionBlockShouldBeginEditing; {
   return [self.mapBlocks objectForKey:SH_blockShouldBeginEditing];
 }
 
--(SHTextViewBlock)SH_blockDidBeginEditing; {
+-(SHTextViewBlock)completionBlockDidBeginEditing; {
   return [self.mapBlocks objectForKey:SH_blockDidBeginEditing];
 }
 
--(SHTextViewPredicateBlock)SH_blockShouldEndEditing; {
+-(SHTextViewPredicateBlock)completionBlockShouldEndEditing; {
   return [self.mapBlocks objectForKey:SH_blockShouldEndEditing];
 }
 
--(SHTextViewBlock)SH_blockDidEndEditing; {
+-(SHTextViewBlock)completionBlockDidEndEditing; {
   return [self.mapBlocks objectForKey:SH_blockDidEndEditing];
 }
 
--(SHTextViewRangeReplacementBlock)SH_blockShouldChangeCharactersInRangeWithReplacementText; {
+-(SHTextViewRangeReplacementBlock)completionBlockShouldChangeCharactersInRangeWithReplacementText; {
   return [self.mapBlocks objectForKey:SH_blockShouldChangeCharactersInRangeWithReplacementText];
 }
 
 
--(SHTextViewBlock)SH_blockDidChange; {
+-(SHTextViewBlock)completionBlockDidChange; {
   return [self.mapBlocks objectForKey:SH_blockDidChange];
   
 }
 
--(SHTextViewBlock)SH_blockDidChangeSelection; {
+-(SHTextViewBlock)completionBlockDidChangeSelection; {
   return [self.mapBlocks objectForKey:SH_blockDidChangeSelection];
 }
 

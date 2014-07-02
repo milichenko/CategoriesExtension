@@ -367,12 +367,12 @@
 		63EF8A9A19614F2D0053E7BE /* CategoriesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				63B76B79196436140025009D /* OtherCategories */,
-				63B76B73196433610025009D /* BlocksCategories */,
 				63EF8C99196182290053E7BE /* CategoriesExtension.h */,
 				63EF8AF819614F2D0053E7BE /* PHAppDelegate.h */,
 				63EF8AF919614F2D0053E7BE /* PHAppDelegate.m */,
 				63EF8AAD19614F2D0053E7BE /* Images.xcassets */,
+				63B76B73196433610025009D /* BlocksCategories */,
+				63B76B79196436140025009D /* OtherCategories */,
 				63EF8BA1196156E40053E7BE /* Supporting Files */,
 			);
 			path = CategoriesExtension;
