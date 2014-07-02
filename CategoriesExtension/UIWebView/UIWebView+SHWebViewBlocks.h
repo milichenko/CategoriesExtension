@@ -20,13 +20,13 @@ typedef BOOL (^SHWebViewBlockWithRequest)(UIWebView * theWebView, NSURLRequest *
 #pragma mark - Setters
 
 
--(void)SH_setShouldStartLoadWithRequestBlock:(SHWebViewBlockWithRequest)theBlock;
+-(void)completionShouldStartLoadWithRequestBlock:(SHWebViewBlockWithRequest)theBlock;
 
--(void)SH_setDidStartLoadBlock:(SHWebViewBlock)theBlock;
+-(void)completionDidStartLoadBlock:(SHWebViewBlock)theBlock;
 
--(void)SH_setDidFinishLoadBlock:(SHWebViewBlock)theBlock;
+-(void)completionDidFinishLoadBlock:(SHWebViewBlock)theBlock;
 
--(void)SH_setDidFailLoadWithErrorBlock:(SHWebViewBlockWithError)theBlock;
+-(void)completionDidFailLoadWithErrorBlock:(SHWebViewBlockWithError)theBlock;
 
 
 

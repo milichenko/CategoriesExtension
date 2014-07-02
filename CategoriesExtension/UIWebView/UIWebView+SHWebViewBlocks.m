@@ -155,21 +155,21 @@ SHStaticConstString(SH_blockDidFailLoadWithError);
 
 #pragma mark - Setters
 
--(void)SH_setShouldStartLoadWithRequestBlock:(SHWebViewBlockWithRequest)theBlock; {
+-(void)completionShouldStartLoadWithRequestBlock:(SHWebViewBlockWithRequest)theBlock; {
   [SHWebViewBlockManager setBlock:theBlock forWebView:self withKey:SH_blockShouldStartLoadingWithRequest];
 }
 
--(void)SH_setDidStartLoadBlock:(SHWebViewBlock)theBlock; {
+-(void)completionDidStartLoadBlock:(SHWebViewBlock)theBlock; {
   [SHWebViewBlockManager setBlock:theBlock forWebView:self withKey:SH_blockDidStartLoad];
   
 }
 
--(void)SH_setDidFinishLoadBlock:(SHWebViewBlock)theBlock; {
+-(void)completionDidFinishLoadBlock:(SHWebViewBlock)theBlock; {
   [SHWebViewBlockManager setBlock:theBlock forWebView:self withKey:SH_blockDidFinishLoad];
   
 }
 
--(void)SH_setDidFailLoadWithErrorBlock:(SHWebViewBlockWithError)theBlock; {
+-(void)completionDidFailLoadWithErrorBlock:(SHWebViewBlockWithError)theBlock; {
   [SHWebViewBlockManager setBlock:theBlock forWebView:self withKey:SH_blockDidFailLoadWithError];
   
 }

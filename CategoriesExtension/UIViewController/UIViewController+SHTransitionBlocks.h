@@ -11,12 +11,12 @@
 typedef void(^SHTransitionAnimationCompletionBlock)();
 
 typedef void(^SHTransitionPreparedAnimationBlock)(UIView * containerView,
-                                                                   UIViewController * fromVC,
-                                                                   UIViewController * toVC,
-                                                                   NSTimeInterval duration,
-                                                                   id<SHViewControllerAnimatedTransitioning> transitionObject,
-                                                                   SHTransitionAnimationCompletionBlock transitionDidComplete
-                                                                          );
+                                                  UIViewController * fromVC,
+                                                  UIViewController * toVC,
+                                                  NSTimeInterval duration,
+                                                  id<SHViewControllerAnimatedTransitioning> transitionObject,
+                                                  SHTransitionAnimationCompletionBlock transitionDidComplete
+                                                  );
 
 typedef void(^SHTransitionAnimationBlock)(id<SHViewControllerAnimatedTransitioning> transitionObject);
 
@@ -33,19 +33,19 @@ typedef void(^SHTransitionCallbackGestureRecognizerBlock)(UIViewController * con
 
 @interface UIViewController (SHTransitionBlocks)
 
-@property(nonatomic,strong, setter = SH_setInteractiveTransition:)
+@property(nonatomic,strong, setter = completionInteractiveTransition:)
 UIPercentDrivenInteractiveTransition * SH_interactiveTransition;
 
--(void)SH_setInteractiveTransitionWithGestureBlock:(SHTransitionGestureRecognizerCreationBlock)theGestureCreateBlock
+-(void)completionInteractiveTransitionWithGestureBlock:(SHTransitionGestureRecognizerCreationBlock)theGestureCreateBlock
                             onGestureCallbackBlock:(SHTransitionCallbackGestureRecognizerBlock)theGestureCallbackBlock;
 
 -(id<SHViewControllerAnimatedTransitioning>)SH_animatedTransition;
 
--(void)SH_setAnimationDuration:(NSTimeInterval)theDuration
+-(void)completionAnimationDuration:(NSTimeInterval)theDuration
    withPreparedTransitionBlock:(SHTransitionPreparedAnimationBlock)theBlock;
 
--(void)SH_setAnimatedTransitionBlock:(SHTransitionAnimationBlock)theBlock;
--(void)SH_setDurationTransitionBlock:(SHTransitionDurationBlock)theBlock;
+-(void)completionAnimatedTransitionBlock:(SHTransitionAnimationBlock)theBlock;
+-(void)completionDurationTransitionBlock:(SHTransitionDurationBlock)theBlock;
 
 @property(nonatomic,readonly) SHTransitionPreparedAnimationBlock SH_blockAnimationDurationWithPreparedTransition;
 @property(nonatomic,readonly) SHTransitionAnimationBlock SH_blockAnimatedTransition;

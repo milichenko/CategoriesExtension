@@ -25,22 +25,22 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * theUserInfo);
 
 #pragma mark - Segue Performers
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
-           andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
+                    andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
-             andDestinationViewController:(SHPrepareForSegueDestinationViewController)theBlock;
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
+               andDestinationViewController:(SHPrepareForSegueDestinationViewController)theBlock;
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
-                        withUserInfo:(NSDictionary *)theUserInfo;
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
+                               withUserInfo:(NSDictionary *)theUserInfo;
 
 
 #pragma mark - Segue Observers
--(void)SH_observeSegueWithIdentifier:(NSString *)theIdentifier
-             andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
+-(void)observeSegueWithIdentifier:(NSString *)theIdentifier
+          andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
 
 #pragma mark - Helpers
--(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue;
+-(BOOL)completionHandlesBlockForSegue:(UIStoryboardSegue *)theSegue;
 
 
 

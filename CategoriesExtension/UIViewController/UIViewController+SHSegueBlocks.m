@@ -72,7 +72,7 @@
 #pragma mark - Segue Performers
 
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
            andPrepareForSegueBlock:(SHPrepareForSegue)theBlock; {
   NSMutableDictionary * blocks = [self.mapBlocks objectForKey:self];
   if(blocks == nil) blocks = @{}.mutableCopy;
@@ -81,23 +81,23 @@
   [self performSegueWithIdentifier:theIdentifier sender:self];
 }
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
        andDestinationViewController:(SHPrepareForSegueDestinationViewController)theBlock; {
-  [self SH_performSegueWithIdentifier:theIdentifier andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
+  [self completionPerformSegueWithIdentifier:theIdentifier andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
     UIViewController * destinationViewController = theSegue.destinationViewController;
     if(theBlock) theBlock(destinationViewController);
   }];
 }
 
--(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+-(void)completionPerformSegueWithIdentifier:(NSString *)theIdentifier
                         withUserInfo:(NSDictionary *)theUserInfo; {
-  [self SH_performSegueWithIdentifier:theIdentifier andDestinationViewController:^(UIViewController * theDestinationViewController) {
+  [self completionPerformSegueWithIdentifier:theIdentifier andDestinationViewController:^(UIViewController * theDestinationViewController) {
     theDestinationViewController.SH_userInfo = [theUserInfo mutableCopy];
   }];
 }
 
 #pragma mark - Segue Observers
--(void)SH_observeSegueWithIdentifier:(NSString *)theIdentifier
+-(void)observeSegueWithIdentifier:(NSString *)theIdentifier
              andPrepareForSegueBlock:(SHPrepareForSegue)theBlock; {
   NSMutableDictionary * blocks = [self.mapBlocks objectForKey:self];
   if(blocks == nil) blocks = @{}.mutableCopy;
@@ -110,7 +110,7 @@
 
 #pragma mark - Helpers
 
--(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue; {
+-(BOOL)completionHandlesBlockForSegue:(UIStoryboardSegue *)theSegue; {
   BOOL handlesBlockForSegue = NO;
   NSMutableDictionary * blocks = [SHSegueBlocksManager.sharedManager.mapBlocks objectForKey:self];
   SHPrepareForSegue block = blocks[theSegue.identifier];
