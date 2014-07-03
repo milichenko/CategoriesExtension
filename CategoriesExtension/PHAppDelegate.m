@@ -7,7 +7,7 @@
 //
 
 #import "PHAppDelegate.h"
-#import "NSString+Color.h"
+#import "UITabBarController+SHTabBarControllerBlocks.h"
 
 @implementation PHAppDelegate
 
@@ -15,6 +15,22 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    /*UIViewController *childVC = [UIViewController new];
+    childVC.title = @"child";
+    UIViewController *childVC2 = [UIViewController new];
+    childVC2.title = @"child2";
+    
+    UITabBarController *vc = [[UITabBarController alloc] init];
+    [vc completionSetDidSelectViewControllerBlock:^(UITabBarController *theTabBarController, UIViewController *theViewController) {
+        NSLog(@"%@", theViewController);
+    }];
+    
+    [vc addChildViewController:childVC];
+    [vc addChildViewController:childVC2];
+    
+    self.window.rootViewController = vc;*/
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

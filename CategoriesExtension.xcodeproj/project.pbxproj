@@ -72,7 +72,6 @@
 		63EF8C761961699F0053E7BE /* UINavigationController+SHNavigationControllerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C751961699F0053E7BE /* UINavigationController+SHNavigationControllerBlocks.m */; };
 		63EF8C7E19616A110053E7BE /* UIViewController+SHSegueBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C7B19616A110053E7BE /* UIViewController+SHSegueBlocks.m */; };
 		63EF8C7F19616A110053E7BE /* UIViewController+SHTransitionBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C7D19616A110053E7BE /* UIViewController+SHTransitionBlocks.m */; };
-		63EF8C86196180940053E7BE /* UITextField+DelegationBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C83196180940053E7BE /* UITextField+DelegationBlocks.m */; };
 		63EF8C87196180940053E7BE /* UITextField+SHTextFieldBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C85196180940053E7BE /* UITextField+SHTextFieldBlocks.m */; };
 		63EF8C8C196180CF0053E7BE /* UITextView+SHTextViewBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C8B196180CF0053E7BE /* UITextView+SHTextViewBlocks.m */; };
 		63EF8C931961815E0053E7BE /* UIWebView+SHWebViewBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C901961815E0053E7BE /* UIWebView+SHWebViewBlocks.m */; };
@@ -214,8 +213,6 @@
 		63EF8C7B19616A110053E7BE /* UIViewController+SHSegueBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SHSegueBlocks.m"; path = "UIViewController/UIViewController+SHSegueBlocks.m"; sourceTree = "<group>"; };
 		63EF8C7C19616A110053E7BE /* UIViewController+SHTransitionBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SHTransitionBlocks.h"; path = "UIViewController/UIViewController+SHTransitionBlocks.h"; sourceTree = "<group>"; };
 		63EF8C7D19616A110053E7BE /* UIViewController+SHTransitionBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SHTransitionBlocks.m"; path = "UIViewController/UIViewController+SHTransitionBlocks.m"; sourceTree = "<group>"; };
-		63EF8C82196180940053E7BE /* UITextField+DelegationBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DelegationBlocks.h"; sourceTree = "<group>"; };
-		63EF8C83196180940053E7BE /* UITextField+DelegationBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DelegationBlocks.m"; sourceTree = "<group>"; };
 		63EF8C84196180940053E7BE /* UITextField+SHTextFieldBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SHTextFieldBlocks.h"; sourceTree = "<group>"; };
 		63EF8C85196180940053E7BE /* UITextField+SHTextFieldBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SHTextFieldBlocks.m"; sourceTree = "<group>"; };
 		63EF8C8A196180CF0053E7BE /* UITextView+SHTextViewBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+SHTextViewBlocks.h"; sourceTree = "<group>"; };
@@ -680,8 +677,6 @@
 		63EF8C80196180940053E7BE /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
-				63EF8C82196180940053E7BE /* UITextField+DelegationBlocks.h */,
-				63EF8C83196180940053E7BE /* UITextField+DelegationBlocks.m */,
 				63EF8C84196180940053E7BE /* UITextField+SHTextFieldBlocks.h */,
 				63EF8C85196180940053E7BE /* UITextField+SHTextFieldBlocks.m */,
 			);
@@ -843,7 +838,6 @@
 				63EF8C441961643B0053E7BE /* UIImage+ImageEffects.m in Sources */,
 				63EF8BC419615CCE0053E7BE /* NSDate+Week.m in Sources */,
 				63EF8C461961643B0053E7BE /* UIImage+Scale.m in Sources */,
-				63EF8C86196180940053E7BE /* UITextField+DelegationBlocks.m in Sources */,
 				63EF8BC219615CCE0053E7BE /* NSDate+Month.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

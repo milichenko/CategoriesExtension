@@ -10,13 +10,13 @@
 
 #define SHStaticConstString(X) static NSString * const X = @#X
 
-SHStaticConstString(SH_blockShouldBeginEditing);
-SHStaticConstString(SH_blockDidBeginEditing);
-SHStaticConstString(SH_blockShouldEndEditing);
-SHStaticConstString(SH_blockDidEndEditing);
-SHStaticConstString(SH_blockShouldChangeCharactersInRangeWithReplacementString);
-SHStaticConstString(SH_blockShouldClear);
-SHStaticConstString(SH_blockShouldReturn);
+SHStaticConstString(completionBlockShouldBeginEditing);
+SHStaticConstString(completionBlockDidBeginEditing);
+SHStaticConstString(completionBlockShouldEndEditing);
+SHStaticConstString(completionBlockDidEndEditing);
+SHStaticConstString(completionBlockShouldChangeCharactersInRangeWithReplacementString);
+SHStaticConstString(completionBlockShouldClear);
+SHStaticConstString(completionBlockShouldReturn);
 
 
 @interface SHTextFieldBlocksManager : NSObject
@@ -84,7 +84,7 @@ SHStaticConstString(SH_blockShouldReturn);
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField; {
   BOOL textFieldShouldBeginEditing = YES;
   SHTextFieldPredicateBlock block = [[self mapTableForTextField:textField]
-                                     objectForKey:SH_blockShouldBeginEditing];
+                                     objectForKey:completionBlockShouldBeginEditing];
   if(block) textFieldShouldBeginEditing = block(textField);
   return textFieldShouldBeginEditing;
 }
@@ -92,7 +92,7 @@ SHStaticConstString(SH_blockShouldReturn);
 // became first responder
 -(void)textFieldDidBeginEditing:(UITextField *)textField; {
   SHTextFieldBlock block = [[self mapTableForTextField:textField]
-                            objectForKey:SH_blockDidBeginEditing];
+                            objectForKey:completionBlockDidBeginEditing];
   if(block) block(textField);
   
 }
@@ -102,7 +102,7 @@ SHStaticConstString(SH_blockShouldReturn);
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField; {
   BOOL textFieldShouldEndEditing = YES;
   SHTextFieldPredicateBlock block = [[self mapTableForTextField:textField]
-                                     objectForKey:SH_blockShouldEndEditing];
+                                     objectForKey:completionBlockShouldEndEditing];
   if(block) textFieldShouldEndEditing = block(textField);
   return textFieldShouldEndEditing;
 
@@ -111,7 +111,7 @@ SHStaticConstString(SH_blockShouldReturn);
 // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
 -(void)textFieldDidEndEditing:(UITextField *)textField; {
   SHTextFieldBlock block = [[self mapTableForTextField:textField]
-                            objectForKey:SH_blockDidEndEditing];
+                            objectForKey:completionBlockDidEndEditing];
   if(block) block(textField);
 
 }
@@ -120,7 +120,7 @@ SHStaticConstString(SH_blockShouldReturn);
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; {
   BOOL shouldChangeCharactersInRange = YES;
   SHTextFieldRangeReplacementBlock block = [[self mapTableForTextField:textField]
-                                     objectForKey:SH_blockShouldChangeCharactersInRangeWithReplacementString];
+                                     objectForKey:completionBlockShouldChangeCharactersInRangeWithReplacementString];
   if(block) shouldChangeCharactersInRange = block(textField,range,string);
   return shouldChangeCharactersInRange;
 
@@ -131,7 +131,7 @@ SHStaticConstString(SH_blockShouldReturn);
 -(BOOL)textFieldShouldClear:(UITextField *)textField; {
   BOOL textFieldShouldClear = YES;
   SHTextFieldPredicateBlock block = [[self mapTableForTextField:textField]
-                                     objectForKey:SH_blockShouldClear];
+                                     objectForKey:completionBlockShouldClear];
   if(block) textFieldShouldClear = block(textField);
   return textFieldShouldClear;
 
@@ -141,7 +141,7 @@ SHStaticConstString(SH_blockShouldReturn);
 -(BOOL)textFieldShouldReturn:(UITextField *)textField; {
   BOOL textFieldShouldReturn = YES;
   SHTextFieldPredicateBlock block = [[self mapTableForTextField:textField]
-                                     objectForKey:SH_blockShouldReturn];
+                                     objectForKey:completionBlockShouldReturn];
   if(block) textFieldShouldReturn = block(textField);
   return textFieldShouldReturn;
 
@@ -162,69 +162,69 @@ SHStaticConstString(SH_blockShouldReturn);
 
 #pragma mark - Setters
 
--(void)SH_setShouldBeginEditingBlock:(SHTextFieldPredicateBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockShouldBeginEditing];
+-(void)completionSetShouldBeginEditingBlock:(SHTextFieldPredicateBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockShouldBeginEditing];
 }
 
--(void)SH_setDidBeginEditingBlock:(SHTextFieldBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockDidBeginEditing];
-
-}
-
--(void)SH_setShouldEndEditingBlock:(SHTextFieldPredicateBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockShouldEndEditing];
+-(void)completionSetDidBeginEditingBlock:(SHTextFieldBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockDidBeginEditing];
 
 }
 
--(void)SH_setDidEndEditingBlock:(SHTextFieldBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockDidEndEditing];
+-(void)completionSetShouldEndEditingBlock:(SHTextFieldPredicateBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockShouldEndEditing];
+
 }
 
--(void)SH_setShouldChangeCharactersInRangeWithReplacementStringBlock:(SHTextFieldRangeReplacementBlock)theBlock; {
+-(void)completionSetDidEndEditingBlock:(SHTextFieldBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockDidEndEditing];
+}
+
+-(void)completionSetShouldChangeCharactersInRangeWithReplacementStringBlock:(SHTextFieldRangeReplacementBlock)theBlock; {
   [self setBlock:theBlock
-          forKey:SH_blockShouldChangeCharactersInRangeWithReplacementString];
+          forKey:completionBlockShouldChangeCharactersInRangeWithReplacementString];
 
 }
 
--(void)SH_setShouldClearBlock:(SHTextFieldPredicateBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockShouldClear];
+-(void)completionSetShouldClearBlock:(SHTextFieldPredicateBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockShouldClear];
 
 }
 
--(void)SH_setShouldReturnBlock:(SHTextFieldPredicateBlock)theBlock; {
-  [self setBlock:theBlock forKey:SH_blockShouldReturn];
+-(void)completionSetShouldReturnBlock:(SHTextFieldPredicateBlock)theBlock; {
+  [self setBlock:theBlock forKey:completionBlockShouldReturn];
 
 }
 
 
 #pragma mark - Getters
 
--(SHTextFieldPredicateBlock)SH_blockShouldBeginEditing; {
-  return [self.mapBlocks objectForKey:SH_blockShouldBeginEditing];
+-(SHTextFieldPredicateBlock)completionBlockShouldBeginEditing; {
+  return [self.mapBlocks objectForKey:completionBlockShouldBeginEditing];
 }
 
--(SHTextFieldBlock)SH_blockDidBeginEditing; {
-  return [self.mapBlocks objectForKey:SH_blockDidBeginEditing];
+-(SHTextFieldBlock)completionBlockDidBeginEditing; {
+  return [self.mapBlocks objectForKey:completionBlockDidBeginEditing];
 }
 
--(SHTextFieldPredicateBlock)SH_blockShouldEndEditing; {
-  return [self.mapBlocks objectForKey:SH_blockShouldEndEditing];
+-(SHTextFieldPredicateBlock)completionBlockShouldEndEditing; {
+  return [self.mapBlocks objectForKey:completionBlockShouldEndEditing];
 }
 
--(SHTextFieldBlock)SH_blockDidEndEditing; {
-  return [self.mapBlocks objectForKey:SH_blockDidEndEditing];
+-(SHTextFieldBlock)completionBlockDidEndEditing; {
+  return [self.mapBlocks objectForKey:completionBlockDidEndEditing];
 }
 
--(SHTextFieldRangeReplacementBlock)SH_blockShouldChangeCharactersInRangeWithReplacementString; {
-  return [self.mapBlocks objectForKey:SH_blockShouldChangeCharactersInRangeWithReplacementString];
+-(SHTextFieldRangeReplacementBlock)completionBlockShouldChangeCharactersInRangeWithReplacementString; {
+  return [self.mapBlocks objectForKey:completionBlockShouldChangeCharactersInRangeWithReplacementString];
 }
 
--(SHTextFieldPredicateBlock)SH_blockShouldClear; {
-  return [self.mapBlocks objectForKey:SH_blockShouldClear];
+-(SHTextFieldPredicateBlock)completionBlockShouldClear; {
+  return [self.mapBlocks objectForKey:completionBlockShouldClear];
 }
 
--(SHTextFieldPredicateBlock)SH_blockShouldReturn; {
-  return [self.mapBlocks objectForKey:SH_blockShouldReturn];
+-(SHTextFieldPredicateBlock)completionBlockShouldReturn; {
+  return [self.mapBlocks objectForKey:completionBlockShouldReturn];
 }
 
 #pragma mark - Private

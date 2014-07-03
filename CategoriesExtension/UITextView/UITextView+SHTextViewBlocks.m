@@ -161,35 +161,35 @@ SHStaticConstString(SH_blockDidChangeSelection);
 
 #pragma mark - Setters
 
--(void)completionShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock; {
+-(void)completionSetShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockShouldBeginEditing];
 }
 
--(void)completionDidBeginEditingBlock:(SHTextViewBlock)theBlock; {
+-(void)completionSetDidBeginEditingBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidBeginEditing];
 
 }
 
--(void)completionShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock; {
+-(void)completionSetShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockShouldEndEditing];
 
 }
 
--(void)completionDidEndEditingBlock:(SHTextViewBlock)theBlock; {
+-(void)completionSetDidEndEditingBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidEndEditing];
 }
 
--(void)completionShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock; {
+-(void)completionSetShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock; {
   [self setBlock:theBlock
           forKey:SH_blockShouldChangeCharactersInRangeWithReplacementText];
 
 }
 
--(void)completionDidChangeBlock:(SHTextViewBlock)theBlock; {
+-(void)completionSetDidChangeBlock:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidChange];
 }
 
--(void)completionDidChangeSelection:(SHTextViewBlock)theBlock; {
+-(void)completionSetDidChangeSelection:(SHTextViewBlock)theBlock; {
   [self setBlock:theBlock forKey:SH_blockDidChangeSelection];  
 }
 

@@ -24,19 +24,19 @@ NSString * string);
 
 #pragma mark - Setters
 
--(void)completionShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock;
+-(void)completionSetShouldBeginEditingBlock:(SHTextViewPredicateBlock)theBlock;
 
--(void)completionShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock;
+-(void)completionSetShouldEndEditingBlock:(SHTextViewPredicateBlock)theBlock;
 
--(void)completionDidBeginEditingBlock:(SHTextViewBlock)theBlock;
+-(void)completionSetDidBeginEditingBlock:(SHTextViewBlock)theBlock;
 
--(void)completionDidEndEditingBlock:(SHTextViewBlock)theBlock;
+-(void)completionSetDidEndEditingBlock:(SHTextViewBlock)theBlock;
 
--(void)completionShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock;
+-(void)completionSetShouldChangeCharactersInRangeWithReplacementTextBlock:(SHTextViewRangeReplacementBlock)theBlock;
 
--(void)completionDidChangeBlock:(SHTextViewBlock)theBlock;
+-(void)completionSetDidChangeBlock:(SHTextViewBlock)theBlock;
 
--(void)completionDidChangeSelection:(SHTextViewBlock)theBlock;
+-(void)completionSetDidChangeSelection:(SHTextViewBlock)theBlock;
 
 
 

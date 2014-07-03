@@ -24,35 +24,35 @@ NSString * string);
 
 #pragma mark - Setters
 
--(void)SH_setShouldBeginEditingBlock:(SHTextFieldPredicateBlock)theBlock;
+-(void)completionSetShouldBeginEditingBlock:(SHTextFieldPredicateBlock)theBlock;
 
--(void)SH_setDidBeginEditingBlock:(SHTextFieldBlock)theBlock;
+-(void)completionSetDidBeginEditingBlock:(SHTextFieldBlock)theBlock;
 
--(void)SH_setShouldEndEditingBlock:(SHTextFieldPredicateBlock)theBlock;
+-(void)completionSetShouldEndEditingBlock:(SHTextFieldPredicateBlock)theBlock;
 
--(void)SH_setDidEndEditingBlock:(SHTextFieldBlock)theBlock;
+-(void)completionSetDidEndEditingBlock:(SHTextFieldBlock)theBlock;
 
--(void)SH_setShouldChangeCharactersInRangeWithReplacementStringBlock:(SHTextFieldRangeReplacementBlock)theBlock;
+-(void)completionSetShouldChangeCharactersInRangeWithReplacementStringBlock:(SHTextFieldRangeReplacementBlock)theBlock;
 
--(void)SH_setShouldClearBlock:(SHTextFieldPredicateBlock)theBlock;
+-(void)completionSetShouldClearBlock:(SHTextFieldPredicateBlock)theBlock;
 
--(void)SH_setShouldReturnBlock:(SHTextFieldPredicateBlock)theBlock;
+-(void)completionSetShouldReturnBlock:(SHTextFieldPredicateBlock)theBlock;
 
 
 #pragma mark - Getters
 
--(SHTextFieldPredicateBlock)SH_blockShouldBeginEditing;
+-(SHTextFieldPredicateBlock)completionBlockShouldBeginEditing;
 
--(SHTextFieldBlock)SH_blockDidBeginEditing;
+-(SHTextFieldBlock)completionBlockDidBeginEditing;
 
--(SHTextFieldPredicateBlock)SH_blockShouldEndEditing;
+-(SHTextFieldPredicateBlock)completionBlockShouldEndEditing;
 
--(SHTextFieldBlock)SH_blockDidEndEditing;
+-(SHTextFieldBlock)completionBlockDidEndEditing;
 
--(SHTextFieldRangeReplacementBlock)SH_blockShouldChangeCharactersInRangeWithReplacementString;
+-(SHTextFieldRangeReplacementBlock)completionBlockShouldChangeCharactersInRangeWithReplacementString;
 
--(SHTextFieldPredicateBlock)SH_blockShouldClear;
+-(SHTextFieldPredicateBlock)completionBlockShouldClear;
 
--(SHTextFieldPredicateBlock)SH_blockShouldReturn;
+-(SHTextFieldPredicateBlock)completionBlockShouldReturn;
 
 @end
