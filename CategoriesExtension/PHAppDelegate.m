@@ -7,7 +7,6 @@
 //
 
 #import "PHAppDelegate.h"
-#import "UINavigationController+SHNavigationControllerBlocks.h"
 
 @implementation PHAppDelegate
 

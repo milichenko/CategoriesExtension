@@ -16,24 +16,24 @@ typedef void (^SHActionSheetDismissBlock)(UIActionSheet * theActionSheet, NSInte
 
 #pragma mark -
 #pragma mark Init
-+(instancetype)SH_actionSheetWithTitle:(NSString *)theTitle;
++(instancetype)completionActionSheetWithTitle:(NSString *)theTitle;
 
-+(instancetype)SH_actionSheetWithTitle:(NSString *)theTitle
++(instancetype)completionActionSheetWithTitle:(NSString *)theTitle
                           buttonTitles:(NSArray *)theButtonTitles
                            cancelTitle:(NSString *)theCancelTitle
                       destructiveTitle:(NSString *)theDestructiveTitle
                              withBlock:(SHActionSheetBlock)theBlock;
 #pragma mark -
 #pragma mark Adding
--(NSInteger)SH_addButtonWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonWithTitle:(NSString *)theTitle
                       withBlock:(SHActionSheetBlock)theBlock;
 
 ///Will add a new destructive button and make previous Destructive buttons to normal
--(NSInteger)SH_addButtonDestructiveWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonDestructiveWithTitle:(NSString *)theTitle
                                     withBlock:(SHActionSheetBlock)theBlock;
 
 ///Will add a new destructive button and make previous Destructive buttons to normal
--(NSInteger)SH_addButtonCancelWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonCancelWithTitle:(NSString *)theTitle
                                withBlock:(SHActionSheetBlock)theBlock;
 
 #pragma mark -
@@ -41,18 +41,18 @@ typedef void (^SHActionSheetDismissBlock)(UIActionSheet * theActionSheet, NSInte
 
 #pragma mark -
 #pragma mark Setters
--(void)SH_setButtonBlockForIndex:(NSInteger)theButtonIndex
+-(void)completionSetButtonBlockForIndex:(NSInteger)theButtonIndex
                        withBlock:(SHActionSheetBlock)theBlock;
 
 
--(void)SH_setButtonDestructiveBlock:(SHActionSheetBlock)theBlock;
--(void)SH_setButtonCancelBlock:(SHActionSheetBlock)theBlock;
+-(void)completionSetButtonDestructiveBlock:(SHActionSheetBlock)theBlock;
+-(void)completionSetButtonCancelBlock:(SHActionSheetBlock)theBlock;
 
--(void)SH_setWillShowBlock:(SHActionSheetShowBlock)theBlock;
--(void)SH_setDidShowBlock:(SHActionSheetShowBlock)theBlock;
+-(void)completionSetWillShowBlock:(SHActionSheetShowBlock)theBlock;
+-(void)completionSetDidShowBlock:(SHActionSheetShowBlock)theBlock;
 
--(void)SH_setWillDismissBlock:(SHActionSheetDismissBlock)theBlock;
--(void)SH_setDidDismissBlock:(SHActionSheetDismissBlock)theBlock;
+-(void)completionSetWillDismissBlock:(SHActionSheetDismissBlock)theBlock;
+-(void)completionSetDidDismissBlock:(SHActionSheetDismissBlock)theBlock;
 
 #pragma mark -
 #pragma mark Getters

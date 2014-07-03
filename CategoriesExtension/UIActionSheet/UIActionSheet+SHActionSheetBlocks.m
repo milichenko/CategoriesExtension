@@ -128,7 +128,7 @@ static NSString * const SH_blockDidDismiss  = @"SH_blockDidDismiss";
 
 #pragma mark -
 #pragma mark Init
-+(instancetype)SH_actionSheetWithTitle:(NSString *)theTitle; {
++(instancetype)completionActionSheetWithTitle:(NSString *)theTitle; {
   return [[self alloc] initWithTitle:theTitle
                     delegate:[SHActionSheetBlocksManager sharedManager]
            cancelButtonTitle:nil
@@ -137,30 +137,30 @@ static NSString * const SH_blockDidDismiss  = @"SH_blockDidDismiss";
 
 }
 
-+(instancetype)SH_actionSheetWithTitle:(NSString *)theTitle
++(instancetype)completionActionSheetWithTitle:(NSString *)theTitle
                           buttonTitles:(NSArray *)theButtonTitles
                           cancelTitle:(NSString *)theCancelTitle
                       destructiveTitle:(NSString *)theDestructiveTitle
                              withBlock:(SHActionSheetBlock)theBlock; {
 
-  UIActionSheet * sheet = [self SH_actionSheetWithTitle:theTitle];
+  UIActionSheet * sheet = [self completionActionSheetWithTitle:theTitle];
 
   if(theDestructiveTitle)
-    [sheet SH_addButtonDestructiveWithTitle:theDestructiveTitle withBlock:theBlock];
+    [sheet completionAddButtonDestructiveWithTitle:theDestructiveTitle withBlock:theBlock];
   
   for (NSString * title in theButtonTitles)
-    [sheet SH_addButtonWithTitle:title withBlock:theBlock];
+    [sheet completionAddButtonWithTitle:title withBlock:theBlock];
   
   
   if(theCancelTitle)
-    [sheet SH_addButtonCancelWithTitle:theCancelTitle withBlock:theBlock];
+    [sheet completionAddButtonCancelWithTitle:theCancelTitle withBlock:theBlock];
   return sheet;
 }
 
 
 #pragma mark -
 #pragma mark Adding
--(NSInteger)SH_addButtonWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonWithTitle:(NSString *)theTitle
                          withBlock:(SHActionSheetBlock)theBlock; {
   NSInteger indexButton = [self addButtonWithTitle:theTitle];
   [self addBlock:[theBlock copy]  forIndex:indexButton];
@@ -171,17 +171,17 @@ static NSString * const SH_blockDidDismiss  = @"SH_blockDidDismiss";
 
 
 
--(NSInteger)SH_addButtonDestructiveWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonDestructiveWithTitle:(NSString *)theTitle
                                     withBlock:(SHActionSheetBlock)theBlock; {
-  NSInteger indexButton = [self SH_addButtonWithTitle:theTitle withBlock:theBlock];
+  NSInteger indexButton = [self completionAddButtonWithTitle:theTitle withBlock:theBlock];
   [self setDestructiveButtonIndex:indexButton];
   return indexButton;
   
 }
 
--(NSInteger)SH_addButtonCancelWithTitle:(NSString *)theTitle
+-(NSInteger)completionAddButtonCancelWithTitle:(NSString *)theTitle
                                withBlock:(SHActionSheetBlock)theBlock; {
-  NSInteger indexButton = [self SH_addButtonWithTitle:theTitle withBlock:theBlock];
+  NSInteger indexButton = [self completionAddButtonWithTitle:theTitle withBlock:theBlock];
   [self setCancelButtonIndex:indexButton];
   return indexButton;
   
@@ -195,36 +195,36 @@ static NSString * const SH_blockDidDismiss  = @"SH_blockDidDismiss";
 
 #pragma mark -
 #pragma mark Setters
--(void)SH_setButtonBlockForIndex:(NSInteger)theButtonIndex
+-(void)completionSetButtonBlockForIndex:(NSInteger)theButtonIndex
                   withBlock:(SHActionSheetBlock)theBlock;{
   [self addBlock:theBlock forIndex:theButtonIndex];
 }
 
 
 
--(void)SH_setButtonDestructiveBlock:(SHActionSheetBlock)theBlock;{
+-(void)completionSetButtonDestructiveBlock:(SHActionSheetBlock)theBlock;{
   if(self.destructiveButtonIndex >= 0)
     [self addBlock:theBlock forIndex:self.destructiveButtonIndex];
 }
 
--(void)SH_setButtonCancelBlock:(SHActionSheetBlock)theBlock;{
+-(void)completionSetButtonCancelBlock:(SHActionSheetBlock)theBlock;{
   if(self.cancelButtonIndex >= 0)
     [self addBlock:theBlock forIndex:self.cancelButtonIndex];
 }
 
--(void)SH_setWillShowBlock:(SHActionSheetShowBlock)theBlock; {
+-(void)completionSetWillShowBlock:(SHActionSheetShowBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockWillShow];
 }
 
--(void)SH_setDidShowBlock:(SHActionSheetShowBlock)theBlock; {
+-(void)completionSetDidShowBlock:(SHActionSheetShowBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockDidShow];
 }
 
--(void)SH_setWillDismissBlock:(SHActionSheetDismissBlock)theBlock; {
+-(void)completionSetWillDismissBlock:(SHActionSheetDismissBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockWillDismiss];
 }
 
--(void)SH_setDidDismissBlock:(SHActionSheetDismissBlock)theBlock; {
+-(void)completionSetDidDismissBlock:(SHActionSheetDismissBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockDidDismiss]; 
 }
 
