@@ -43,7 +43,6 @@
 		63EF8C071961616D0053E7BE /* NSSetX.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C061961616D0053E7BE /* NSSetX.m */; };
 		63EF8C0B196161AE0053E7BE /* NSURLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C0A196161AE0053E7BE /* NSURLX.m */; };
 		63EF8C0F196161F10053E7BE /* NSUUIDX.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C0E196161F10053E7BE /* NSUUIDX.m */; };
-		63EF8C18196162830053E7BE /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C13196162830053E7BE /* UIAlertView+Blocks.m */; };
 		63EF8C19196162830053E7BE /* UIAlertView+SHAlertViewBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C15196162830053E7BE /* UIAlertView+SHAlertViewBlocks.m */; };
 		63EF8C1A196162830053E7BE /* UIAlertViewX.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C17196162830053E7BE /* UIAlertViewX.m */; };
 		63EF8C1E196162C20053E7BE /* UIApplicationX.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8C1D196162C20053E7BE /* UIApplicationX.m */; };
@@ -155,8 +154,6 @@
 		63EF8C0A196161AE0053E7BE /* NSURLX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLX.m; sourceTree = "<group>"; };
 		63EF8C0D196161F10053E7BE /* NSUUIDX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSUUIDX.h; sourceTree = "<group>"; };
 		63EF8C0E196161F10053E7BE /* NSUUIDX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUUIDX.m; sourceTree = "<group>"; };
-		63EF8C12196162830053E7BE /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
-		63EF8C13196162830053E7BE /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		63EF8C14196162830053E7BE /* UIAlertView+SHAlertViewBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+SHAlertViewBlocks.h"; sourceTree = "<group>"; };
 		63EF8C15196162830053E7BE /* UIAlertView+SHAlertViewBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+SHAlertViewBlocks.m"; sourceTree = "<group>"; };
 		63EF8C16196162830053E7BE /* UIAlertViewX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewX.h; sourceTree = "<group>"; };
@@ -534,8 +531,6 @@
 		63EF8C10196162830053E7BE /* UIAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				63EF8C12196162830053E7BE /* UIAlertView+Blocks.h */,
-				63EF8C13196162830053E7BE /* UIAlertView+Blocks.m */,
 				63EF8C14196162830053E7BE /* UIAlertView+SHAlertViewBlocks.h */,
 				63EF8C15196162830053E7BE /* UIAlertView+SHAlertViewBlocks.m */,
 				63EF8C16196162830053E7BE /* UIAlertViewX.h */,
@@ -814,7 +809,6 @@
 				63EF8B7D19614F2D0053E7BE /* PHAppDelegate.m in Sources */,
 				63EF8BD819615E090053E7BE /* NSString+Color.m in Sources */,
 				63EF8BD219615CF10053E7BE /* NSStringX.m in Sources */,
-				63EF8C18196162830053E7BE /* UIAlertView+Blocks.m in Sources */,
 				63EF8BDC19615E910053E7BE /* MKMapViewX.m in Sources */,
 				63EF8C58196165320053E7BE /* UIView+AnimationExtensions.m in Sources */,
 				63EF8C03196161280053E7BE /* NSObjectX.m in Sources */,

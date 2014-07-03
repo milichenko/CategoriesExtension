@@ -18,57 +18,57 @@ typedef BOOL (^SHAlertViewFirstButtonEnabledBlock)(UIAlertView * theAlertView);
 
 
 #pragma mark - Init
-+(instancetype)SH_alertViewWithTitle:(NSString *)theTitle withMessage:(NSString *)theMessage;
++(instancetype)completionAlertViewWithTitle:(NSString *)theTitle withMessage:(NSString *)theMessage;
 
-+(instancetype)SH_alertViewWithTitle:(NSString *)theTitle
-                          andMessage:(NSString *)theMessage
-                        buttonTitles:(NSArray *)theButtonTitles
-                         cancelTitle:(NSString *)theCancelTitle
-                           withBlock:(SHAlertViewBlock)theBlock;
++(instancetype)completionAlertViewWithTitle:(NSString *)theTitle
+                                 andMessage:(NSString *)theMessage
+                               buttonTitles:(NSArray *)theButtonTitles
+                                cancelTitle:(NSString *)theCancelTitle
+                                  withBlock:(SHAlertViewBlock)theBlock;
 
 
 
 #pragma mark - Adding
--(NSInteger)SH_addButtonWithTitle:(NSString *)theTitle
-                         withBlock:(SHAlertViewBlock)theBlock;
+-(NSInteger)completionAddButtonWithTitle:(NSString *)theTitle
+                               withBlock:(SHAlertViewBlock)theBlock;
 
 
 ///Will add a new cancel button and make previous cancel buttons to a normal button
--(NSInteger)SH_addButtonCancelWithTitle:(NSString *)theTitle
-                               withBlock:(SHAlertViewBlock)theBlock;
+-(NSInteger)completionAddButtonCancelWithTitle:(NSString *)theTitle
+                                     withBlock:(SHAlertViewBlock)theBlock;
 
 
 #pragma mark - Properties
 
 
 #pragma mark - Setters
--(void)SH_setButtonBlockForIndex:(NSInteger)theButtonIndex
-                       withBlock:(SHAlertViewBlock)theBlock;
+-(void)completionSetButtonBlockForIndex:(NSInteger)theButtonIndex
+                              withBlock:(SHAlertViewBlock)theBlock;
 
--(void)SH_setButtonCancelBlock:(SHAlertViewBlock)theBlock;
+-(void)completionSetButtonCancelBlock:(SHAlertViewBlock)theBlock;
 
--(void)SH_setWillShowBlock:(SHAlertViewShowBlock)theBlock;
--(void)SH_setDidShowBlock:(SHAlertViewShowBlock)theBlock;
+-(void)completionSetWillShowBlock:(SHAlertViewShowBlock)theBlock;
+-(void)completionSetDidShowBlock:(SHAlertViewShowBlock)theBlock;
 
--(void)SH_setWillDismissBlock:(SHAlertViewDismissBlock)theBlock;
--(void)SH_setDidDismissBlock:(SHAlertViewDismissBlock)theBlock;
+-(void)completionSetWillDismissBlock:(SHAlertViewDismissBlock)theBlock;
+-(void)completionSetDidDismissBlock:(SHAlertViewDismissBlock)theBlock;
 
--(void)SH_setFirstButtonEnabledBlock:(SHAlertViewFirstButtonEnabledBlock)theBlock;
+-(void)completionSetFirstButtonEnabledBlock:(SHAlertViewFirstButtonEnabledBlock)theBlock;
 
 
 #pragma mark - Getters
--(SHAlertViewBlock)SH_blockForButtonIndex:(NSInteger)theButtonIndex;
+-(SHAlertViewBlock)completionBlockForButtonIndex:(NSInteger)theButtonIndex;
 
 
-@property(nonatomic,readonly) SHAlertViewBlock SH_blockForCancelButton;
+@property(nonatomic,readonly) SHAlertViewBlock completionBlockForCancelButton;
 
 
-@property(nonatomic,readonly) SHAlertViewShowBlock    SH_blockWillShow;
-@property(nonatomic,readonly) SHAlertViewShowBlock    SH_blockDidShow;
+@property(nonatomic,readonly) SHAlertViewShowBlock    completionBlockWillShow;
+@property(nonatomic,readonly) SHAlertViewShowBlock    completionBlockDidShow;
 
-@property(nonatomic,readonly) SHAlertViewDismissBlock SH_blockWillDismiss;
-@property(nonatomic,readonly) SHAlertViewDismissBlock SH_blockDidDismiss;
+@property(nonatomic,readonly) SHAlertViewDismissBlock completionBlockWillDismiss;
+@property(nonatomic,readonly) SHAlertViewDismissBlock completionBlockDidDismiss;
 
-@property(nonatomic,readonly) SHAlertViewFirstButtonEnabledBlock SH_blockForFirstButtonEnabled;
+@property(nonatomic,readonly) SHAlertViewFirstButtonEnabledBlock completionBlockForFirstButtonEnabled;
 
 @end

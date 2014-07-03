@@ -16,6 +16,6 @@ typedef void (^UIAlertViewCompletionBlock)(UIAlertView *alertView, NSInteger but
 
  @param completionBlock A block to execute when alert is dismissed.
  */
-- (void)showWithCompletion:(UIAlertViewCompletionBlock)completionBlock;
+- (void)completionShowWithBlock:(UIAlertViewCompletionBlock)completionBlock;
 
 @end

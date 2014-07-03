@@ -28,7 +28,7 @@ static const char kXAlertViewWrapper;
 
 @implementation UIAlertView (X)
 
-- (void)showWithCompletion:(UIAlertViewCompletionBlock)completionBlock
+- (void)completionShowWithBlock:(UIAlertViewCompletionBlock)completionBlock
 {
     XAlertViewWrapper *alertViewWrapper = XAlertViewWrapper.new;
 

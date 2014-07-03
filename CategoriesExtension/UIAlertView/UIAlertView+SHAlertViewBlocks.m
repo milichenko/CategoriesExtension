@@ -136,7 +136,7 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
 
 
 #pragma mark - Init
-+(instancetype)SH_alertViewWithTitle:(NSString *)theTitle withMessage:(NSString *)theMessage; {
++(instancetype)completionAlertViewWithTitle:(NSString *)theTitle withMessage:(NSString *)theMessage; {
   UIAlertView * alert = [[self alloc] initWithTitle:theTitle
                                             message:theMessage
                                            delegate:[SHAlertViewBlocksManager sharedManager] cancelButtonTitle:nil
@@ -146,11 +146,11 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
   return alert;
 }
 
-+(instancetype)SH_alertViewWithTitle:(NSString *)theTitle
-                          andMessage:(NSString *)theMessage
-                        buttonTitles:(NSArray *)theButtonTitles
-                         cancelTitle:(NSString *)theCancelTitle
-                           withBlock:(SHAlertViewBlock)theBlock; {
++(instancetype)completionAlertViewWithTitle:(NSString *)theTitle
+                                 andMessage:(NSString *)theMessage
+                               buttonTitles:(NSArray *)theButtonTitles
+                                cancelTitle:(NSString *)theCancelTitle
+                                  withBlock:(SHAlertViewBlock)theBlock; {
   NSString * firstButton = nil;
   if(theButtonTitles.count > 0)
     firstButton = theButtonTitles[0];
@@ -167,13 +167,13 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
     alert.mapOfBlocks[SH_firstButtonDisabled] = @(YES);
   
   if(theCancelTitle)
-    [alert SH_setButtonCancelBlock:theBlock];
+    [alert completionSetButtonCancelBlock:theBlock];
   
   if(firstButton)
-    [alert SH_setButtonBlockForIndex:alert.firstOtherButtonIndex withBlock:theBlock];
+    [alert completionSetButtonBlockForIndex:alert.firstOtherButtonIndex withBlock:theBlock];
   
   for (NSString * title in theButtonTitles)
-    [alert SH_addButtonWithTitle:title withBlock:theBlock];
+    [alert completionAddButtonWithTitle:title withBlock:theBlock];
   
   return alert;
 
@@ -182,8 +182,8 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
 
 
 #pragma mark - Adding
--(NSInteger)SH_addButtonWithTitle:(NSString *)theTitle
-                         withBlock:(SHAlertViewBlock)theBlock; {
+-(NSInteger)completionAddButtonWithTitle:(NSString *)theTitle
+                               withBlock:(SHAlertViewBlock)theBlock; {
   NSInteger indexButton = [self addButtonWithTitle:theTitle];
   [self addBlock:[theBlock copy]  forIndex:indexButton];
   return indexButton;
@@ -193,9 +193,9 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
 
 
 
--(NSInteger)SH_addButtonCancelWithTitle:(NSString *)theTitle
-                               withBlock:(SHAlertViewBlock)theBlock;{
-  NSInteger indexButton = [self SH_addButtonWithTitle:theTitle withBlock:theBlock];
+-(NSInteger)completionAddButtonCancelWithTitle:(NSString *)theTitle
+                                     withBlock:(SHAlertViewBlock)theBlock;{
+  NSInteger indexButton = [self completionAddButtonWithTitle:theTitle withBlock:theBlock];
   [self setCancelButtonIndex:indexButton];
   return indexButton;
   
@@ -204,46 +204,46 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
 
 #pragma mark - Properties
 #pragma mark - Setters
--(void)SH_setButtonBlockForIndex:(NSInteger)theButtonIndex
-                       withBlock:(SHAlertViewBlock)theBlock;{
+-(void)completionSetButtonBlockForIndex:(NSInteger)theButtonIndex
+                              withBlock:(SHAlertViewBlock)theBlock;{
   [self addBlock:theBlock forIndex:theButtonIndex];
 }
 
 
--(void)SH_setButtonCancelBlock:(SHAlertViewBlock)theBlock;{
+-(void)completionSetButtonCancelBlock:(SHAlertViewBlock)theBlock;{
   if(self.cancelButtonIndex >= 0)
     [self addBlock:theBlock forIndex:self.cancelButtonIndex];
 }
 
 -
-(void)SH_setWillShowBlock:(SHAlertViewShowBlock)theBlock; {
+(void)completionSetWillShowBlock:(SHAlertViewShowBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockWillShow];
 }
 
--(void)SH_setDidShowBlock:(SHAlertViewShowBlock)theBlock; {
+-(void)completionSetDidShowBlock:(SHAlertViewShowBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockDidShow];
 }
 
--(void)SH_setWillDismissBlock:(SHAlertViewDismissBlock)theBlock; {
+-(void)completionSetWillDismissBlock:(SHAlertViewDismissBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockWillDismiss];
 }
 
--(void)SH_setDidDismissBlock:(SHAlertViewDismissBlock)theBlock; {
+-(void)completionSetDidDismissBlock:(SHAlertViewDismissBlock)theBlock; {
   [self addBlock:theBlock forKey:SH_blockDidDismiss]; 
 }
 
--(void)SH_setFirstButtonEnabledBlock:(SHAlertViewFirstButtonEnabledBlock)theBlock; {
+-(void)completionSetFirstButtonEnabledBlock:(SHAlertViewFirstButtonEnabledBlock)theBlock; {
   NSAssert(self.mapOfBlocks[SH_firstButtonDisabled] == nil, @"Can't use SHAlertViewFirstButtonEnabledBlock without passing button title with an initializer");
   [self addBlock:theBlock forKey:SH_blockAlertViewShouldEnableFirstOtherButton];
 }
 
 
 #pragma mark - Getters
--(SHAlertViewBlock)SH_blockForButtonIndex:(NSInteger)theButtonIndex; {
+-(SHAlertViewBlock)completionBlockForButtonIndex:(NSInteger)theButtonIndex; {
   return self.mapOfBlocks[@(theButtonIndex)];
 }
 
--(SHAlertViewBlock)SH_blockForCancelButton; {
+-(SHAlertViewBlock)completionBlockForCancelButton; {
   SHAlertViewBlock block = nil;
   if(self.cancelButtonIndex >= 0)
     block = self.mapOfBlocks[@(self.cancelButtonIndex)];
@@ -251,23 +251,23 @@ static NSString * const SH_firstButtonDisabled = @"SH_firstButtonDisabled";
 }
 
 
--(SHAlertViewShowBlock)SH_blockWillShow;{
+-(SHAlertViewShowBlock)completionBlockWillShow;{
   return self.mapOfBlocks[SH_blockWillShow];    
 }
 
--(SHAlertViewShowBlock)SH_blockDidShow;{
+-(SHAlertViewShowBlock)completionBlockDidShow;{
   return self.mapOfBlocks[SH_blockDidShow];
 }
 
--(SHAlertViewDismissBlock)SH_blockWillDismiss;{
+-(SHAlertViewDismissBlock)completionBlockWillDismiss;{
   return self.mapOfBlocks[SH_blockWillDismiss];
 }
 
--(SHAlertViewDismissBlock)SH_blockDidDismiss;{
+-(SHAlertViewDismissBlock)completionBlockDidDismiss;{
   return self.mapOfBlocks[SH_blockDidDismiss];
 }
 
--(SHAlertViewFirstButtonEnabledBlock)SH_blockForFirstButtonEnabled; {
+-(SHAlertViewFirstButtonEnabledBlock)completionBlockForFirstButtonEnabled; {
   return self.mapOfBlocks[SH_blockAlertViewShouldEnableFirstOtherButton];
 }
 
