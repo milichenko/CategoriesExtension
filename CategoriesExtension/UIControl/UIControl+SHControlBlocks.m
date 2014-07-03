@@ -95,7 +95,7 @@
 @implementation UIControl (SHControlBlocks)
 
 #pragma mark - Add block
--(void)SH_addControlEvents:(UIControlEvents)controlEvents
+-(void)completionAddControlEvents:(UIControlEvents)controlEvents
                  withBlock:(SHControlEventBlock)theBlock; {
 
 
@@ -115,19 +115,19 @@
 
 }
 
--(void)SH_addControlEventTouchUpInsideWithBlock:(SHControlEventBlock)theBlock; {
+-(void)completionAddControlEventTouchUpInsideWithBlock:(SHControlEventBlock)theBlock; {
   NSAssert(theBlock, @"theBlock is required");
-  [self SH_addControlEvents:UIControlEventTouchUpInside withBlock:theBlock];
+  [self completionAddControlEvents:UIControlEventTouchUpInside withBlock:theBlock];
 }
 
 
 
 #pragma mark - Remove block
--(void)SH_removeControlEventTouchUpInside; {
-  [self SH_removeBlocksForControlEvents:UIControlEventTouchUpInside];
+-(void)completionRemoveControlEventTouchUpInside; {
+  [self completionRemoveBlocksForControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)SH_removeBlocksForControlEvents:(UIControlEvents)controlEvents; {
+-(void)completionRemoveBlocksForControlEvents:(UIControlEvents)controlEvents; {
   SHControl * control = [self shControlForControlEvents:controlEvents];
   if(control) {
     [self removeTarget:control action:NULL forControlEvents:controlEvents];
@@ -137,30 +137,30 @@
 
 
 
--(void)SH_removeControlEventsForBlock:(SHControlEventBlock)theBlock; {
+-(void)completionRemoveControlEventsForBlock:(SHControlEventBlock)theBlock; {
   NSSet * immutableTableControls = self.tableControls.setRepresentation;
   for (SHControl * control in immutableTableControls){
     if([control.tableBlocks containsObject:theBlock])
       [control.tableBlocks removeObject:theBlock];
     if(control.tableBlocks.count == 0)
-      [self SH_removeBlocksForControlEvents:control.controlEvents];
+      [self completionRemoveBlocksForControlEvents:control.controlEvents];
   }
 }
 
--(void)SH_removeAllControlEventsBlocks; {
+-(void)completionRemoveAllControlEventsBlocks; {
   self.tableControls = nil;
 }
 
 
 #pragma mark - Helpers
--(NSSet *)SH_blocksForControlEvents:(UIControlEvents)theControlEvents; {
+-(NSSet *)completionBlocksForControlEvents:(UIControlEvents)theControlEvents; {
   SHControl * control = [self shControlForControlEvents:theControlEvents];
   NSSet * setOfBlocks = control.tableBlocks.setRepresentation;
   if(setOfBlocks == nil) setOfBlocks = [NSSet set];
   return setOfBlocks;
 }
 
--(NSSet *)SH_controlEventsForBlock:(SHControlEventBlock)theBlock; {
+-(NSSet *)completionControlEventsForBlock:(SHControlEventBlock)theBlock; {
   NSAssert(theBlock, @"theBlock is required");
   NSMutableSet * setOfControlEvents = [NSMutableSet set];
   for (SHControl * control in self.tableControls) {
@@ -178,7 +178,7 @@
 
 
 #pragma mark - Getters
--(NSDictionary *)SH_controlBlocks; {
+-(NSDictionary *)completionControlBlocks; {
   NSMutableDictionary * controlBlocks = @{}.mutableCopy;
   for (SHControl * control in self.tableControls) {
     controlBlocks[@(control.controlEvents)] = control.tableBlocks.setRepresentation;
