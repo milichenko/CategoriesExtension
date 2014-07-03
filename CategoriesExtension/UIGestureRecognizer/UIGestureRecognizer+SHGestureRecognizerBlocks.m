@@ -78,25 +78,25 @@
 #pragma mark - Init
 
 
-+(instancetype)SH_gestureRecognizerWithBlock:(SHGestureRecognizerBlock)theBlock; {
++(instancetype)completionGestureRecognizerWithBlock:(SHGestureRecognizerBlock)theBlock; {
   return [[[self class] alloc] initWithBlock:theBlock];
 }
 
 
 #pragma mark - Add block
--(void)SH_addBlock:(SHGestureRecognizerBlock)theBlock; {
+-(void)completionAddBlock:(SHGestureRecognizerBlock)theBlock; {
   if(theBlock) [self.mutableBlocks addObject:[theBlock copy]];
 }
 
 
 #pragma mark - Remove block
--(void)SH_removeBlock:(SHGestureRecognizerBlock)theBlock; {
+-(void)completionRemoveBlock:(SHGestureRecognizerBlock)theBlock; {
   [self.mutableBlocks removeObject:theBlock];
   if(self.mutableBlocks.count < 1)
-    [self SH_removeAllBlocks];
+    [self completionRemoveAllBlocks];
 }
 
--(void)SH_removeAllBlocks; {
+-(void)completionRemoveAllBlocks; {
   [self.view removeGestureRecognizer:self];
   [self removeTarget:nil action:nil];
   self.mutableBlocks = nil;
@@ -108,7 +108,7 @@
 
 
 #pragma mark Getters
--(NSSet *)SH_blocks; {
+-(NSSet *)completionBlocks; {
   return self.mutableBlocks.copy;
 }
 
@@ -121,7 +121,7 @@
 -(instancetype)initWithBlock:(SHGestureRecognizerBlock)theBlock; {
   self = [self initWithTarget:self action:@selector(performBlockAction:)];
 	if (self) {
-    [self SH_addBlock:theBlock];
+    [self completionAddBlock:theBlock];
 	}
 	return self;
   
@@ -158,7 +158,7 @@
 
 #pragma mark - Actions
 -(void)performBlockAction:(UIGestureRecognizer *)theGestureRecognizer {
-  id<NSFastEnumeration> blocks = self.SH_blocks;
+  id<NSFastEnumeration> blocks = self.completionBlocks;
 
   CGPoint location = [self locationInView:self.view];
   for (SHGestureRecognizerBlock block in blocks) {

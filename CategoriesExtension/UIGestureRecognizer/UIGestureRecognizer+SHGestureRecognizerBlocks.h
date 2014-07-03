@@ -13,18 +13,18 @@ typedef void (^SHGestureRecognizerBlock)(UIGestureRecognizer * sender, UIGesture
 @interface UIGestureRecognizer (SHGestureRecognizerBlocks)
 
 #pragma mark - Init
-+(instancetype)SH_gestureRecognizerWithBlock:(SHGestureRecognizerBlock)theBlock;
++(instancetype)completionGestureRecognizerWithBlock:(SHGestureRecognizerBlock)theBlock;
 
 #pragma mark - Add block
--(void)SH_addBlock:(SHGestureRecognizerBlock)theBlock;
+-(void)completionAddBlock:(SHGestureRecognizerBlock)theBlock;
 
 #pragma mark - Remove block
--(void)SH_removeBlock:(SHGestureRecognizerBlock)theBlock;
--(void)SH_removeAllBlocks;
+-(void)completionRemoveBlock:(SHGestureRecognizerBlock)theBlock;
+-(void)completionRemoveAllBlocks;
 
 #pragma mark - Properties
 
 #pragma mark - Getters
-@property(nonatomic,readonly) NSSet * SH_blocks;
+@property(nonatomic,readonly) NSSet * completionBlocks;
 
 @end
