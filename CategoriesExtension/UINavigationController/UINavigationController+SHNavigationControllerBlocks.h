@@ -27,23 +27,23 @@ typedef id<UIViewControllerAnimatedTransitioning>
 
 #pragma mark - Setters
 
--(void)SH_setWillShowViewControllerBlock:(SHNavigationControllerBlock)theBlock;
+-(void)completionSetWillShowViewControllerBlock:(SHNavigationControllerBlock)theBlock;
 
--(void)SH_setDidShowViewControllerBlock:(SHNavigationControllerBlock)theBlock;
+-(void)completionSetDidShowViewControllerBlock:(SHNavigationControllerBlock)theBlock;
 
--(void)SH_setPreferredInterfaceOrientationForPresentatationBlock:(SHNavigationControllerOrientationBlock)theBlock;
+-(void)completionSetPreferredInterfaceOrientationForPresentatationBlock:(SHNavigationControllerOrientationBlock)theBlock;
 
--(void)SH_setInteractiveControllerBlock:(SHNavigationControllerInteractiveControllerBlock)theBlock;
+-(void)completionSetInteractiveControllerBlock:(SHNavigationControllerInteractiveControllerBlock)theBlock;
 
--(void)SH_setAnimatedControllerBlock:(SHNavigationControllerAnimatedControllerBlock)theBlock;
+-(void)completionSetAnimatedControllerBlock:(SHNavigationControllerAnimatedControllerBlock)theBlock;
 
 #pragma mark - Getters
 
-@property(nonatomic,readonly) SHNavigationControllerBlock SH_blockWillShowViewController;
-@property(nonatomic,readonly) SHNavigationControllerBlock SH_blockDidShowViewController;
-@property(nonatomic,readonly) SHNavigationControllerOrientationBlock SH_blockInterfaceOrientationForPresentation;
-@property(nonatomic,readonly) SHNavigationControllerInteractiveControllerBlock SH_blockInteractiveController;
-@property(nonatomic,readonly) SHNavigationControllerAnimatedControllerBlock SH_blockAnimatedController;
+@property(nonatomic,readonly) SHNavigationControllerBlock completionBlockWillShowViewController;
+@property(nonatomic,readonly) SHNavigationControllerBlock completionBlockDidShowViewController;
+@property(nonatomic,readonly) SHNavigationControllerOrientationBlock completionBlockInterfaceOrientationForPresentation;
+@property(nonatomic,readonly) SHNavigationControllerInteractiveControllerBlock completionBlockInteractiveController;
+@property(nonatomic,readonly) SHNavigationControllerAnimatedControllerBlock completionBlockAnimatedController;
 
 
 @end

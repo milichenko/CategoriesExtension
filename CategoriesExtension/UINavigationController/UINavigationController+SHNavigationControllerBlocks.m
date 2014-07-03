@@ -3,11 +3,11 @@
 
 #define SHStaticConstString(X) static NSString * const X = @#X
 
-SHStaticConstString(SH_blockWillShowViewController);
-SHStaticConstString(SH_blockDidShowViewController);
-SHStaticConstString(SH_blockInterfaceOrientationForPresentation);
-SHStaticConstString(SH_blockInteractiveController);
-SHStaticConstString(SH_blockAnimatedController);
+SHStaticConstString(completionBlockWillShowViewController);
+SHStaticConstString(completionBlockDidShowViewController);
+SHStaticConstString(completionBlockInterfaceOrientationForPresentation);
+SHStaticConstString(completionBlockInteractiveController);
+SHStaticConstString(completionBlockAnimatedController);
 
 @protocol SHNavigationDelegate <NSObject>
 @required
@@ -123,18 +123,18 @@ SHStaticConstString(SH_blockAnimatedController);
 
 #pragma mark - <UINavigationControllerDelegate>
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated; {
-  SHNavigationControllerBlock block = [navigationController SH_blockWillShowViewController];
+  SHNavigationControllerBlock block = [navigationController completionBlockWillShowViewController];
   if(block) block(navigationController, viewController, animated);
 }
 
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated; {
-  SHNavigationControllerBlock block = [navigationController SH_blockDidShowViewController];
+  SHNavigationControllerBlock block = [navigationController completionBlockDidShowViewController];
   if(block) block(navigationController, viewController, animated);
   
 }
 
 -(UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController NS_AVAILABLE_IOS(7_0); {
-  SHNavigationControllerOrientationBlock block = [navigationController SH_blockInterfaceOrientationForPresentation];
+  SHNavigationControllerOrientationBlock block = [navigationController completionBlockInterfaceOrientationForPresentation];
   UIInterfaceOrientation orientation = kNilOptions;
   if(block) orientation = block(navigationController);
   return orientation;
@@ -142,7 +142,7 @@ SHStaticConstString(SH_blockAnimatedController);
 
 -(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                          interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController NS_AVAILABLE_IOS(7_0); {
-  SHNavigationControllerInteractiveControllerBlock block = [navigationController SH_blockInteractiveController];
+  SHNavigationControllerInteractiveControllerBlock block = [navigationController completionBlockInteractiveController];
   id<UIViewControllerInteractiveTransitioning> transition = nil;
   if(block) transition = block(navigationController, animationController);
   return transition;
@@ -153,7 +153,7 @@ SHStaticConstString(SH_blockAnimatedController);
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC  NS_AVAILABLE_IOS(7_0); {
-  SHNavigationControllerAnimatedControllerBlock block = [navigationController SH_blockAnimatedController];
+  SHNavigationControllerAnimatedControllerBlock block = [navigationController completionBlockAnimatedController];
   id<UIViewControllerAnimatedTransitioning> transition = nil;
   if(block) transition = block(navigationController, operation, fromVC, toVC);
   return transition;
@@ -185,60 +185,60 @@ SHStaticConstString(SH_blockAnimatedController);
 
 #pragma mark - Setters
 
--(void)SH_setWillShowViewControllerBlock:(SHNavigationControllerBlock)theBlock; {
+-(void)completionSetWillShowViewControllerBlock:(SHNavigationControllerBlock)theBlock; {
   [self SH_setNavigationBlocks];
   [SHNavigationControllerBlockManager setBlock:theBlock
                                  forController:self
-                                       withKey:SH_blockWillShowViewController];
+                                       withKey:completionBlockWillShowViewController];
 }
 
--(void)SH_setDidShowViewControllerBlock:(SHNavigationControllerBlock)theBlock; {
+-(void)completionSetDidShowViewControllerBlock:(SHNavigationControllerBlock)theBlock; {
   [self SH_setNavigationBlocks];
   [SHNavigationControllerBlockManager setBlock:theBlock
                                  forController:self
-                                       withKey:SH_blockDidShowViewController];
+                                       withKey:completionBlockDidShowViewController];
   
 }
 
--(void)SH_setPreferredInterfaceOrientationForPresentatationBlock:(SHNavigationControllerOrientationBlock)theBlock; {
+-(void)completionSetPreferredInterfaceOrientationForPresentatationBlock:(SHNavigationControllerOrientationBlock)theBlock; {
   [self SH_setNavigationBlocks];
-  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:SH_blockInterfaceOrientationForPresentation];
+  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:completionBlockInterfaceOrientationForPresentation];
   
 }
 
--(void)SH_setInteractiveControllerBlock:(SHNavigationControllerInteractiveControllerBlock)theBlock; {
+-(void)completionSetInteractiveControllerBlock:(SHNavigationControllerInteractiveControllerBlock)theBlock; {
   [self SH_setNavigationBlocks];
-  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:SH_blockInteractiveController];
+  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:completionBlockInteractiveController];
 }
 
--(void)SH_setAnimatedControllerBlock:(SHNavigationControllerAnimatedControllerBlock)theBlock; {
+-(void)completionSetAnimatedControllerBlock:(SHNavigationControllerAnimatedControllerBlock)theBlock; {
   [self SH_setNavigationBlocks];
-  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:SH_blockAnimatedController];
+  [SHNavigationControllerBlockManager setBlock:theBlock forController:self withKey:completionBlockAnimatedController];
 
 }
 
 
 
 #pragma mark - Getters
--(SHNavigationControllerBlock)SH_blockWillShowViewController; {
+-(SHNavigationControllerBlock)completionBlockWillShowViewController; {
   return [SHNavigationControllerBlockManager blockForController:self
                                                         withKey:NSStringFromSelector(_cmd)];
 }
--(SHNavigationControllerBlock)SH_blockDidShowViewController; {
+-(SHNavigationControllerBlock)completionBlockDidShowViewController; {
   return [SHNavigationControllerBlockManager blockForController:self
                                                         withKey:NSStringFromSelector(_cmd)];
 }
--(SHNavigationControllerOrientationBlock)SH_blockInterfaceOrientationForPresentation; {
+-(SHNavigationControllerOrientationBlock)completionBlockInterfaceOrientationForPresentation; {
   return [SHNavigationControllerBlockManager blockForController:self
                                                         withKey:NSStringFromSelector(_cmd)];
   
 }
--(SHNavigationControllerInteractiveControllerBlock)SH_blockInteractiveController; {
+-(SHNavigationControllerInteractiveControllerBlock)completionBlockInteractiveController; {
   return [SHNavigationControllerBlockManager blockForController:self
                                                         withKey:NSStringFromSelector(_cmd)];
 }
 
--(SHNavigationControllerAnimatedControllerBlock)SH_blockAnimatedController; {
+-(SHNavigationControllerAnimatedControllerBlock)completionBlockAnimatedController; {
   return [SHNavigationControllerBlockManager blockForController:self
                                                         withKey:NSStringFromSelector(_cmd)];
 }
