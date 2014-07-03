@@ -7,6 +7,7 @@
 //
 
 #import "PHAppDelegate.h"
+#import "UISearchBar+Blocks.h"
 
 @implementation PHAppDelegate
 
