@@ -75,43 +75,43 @@
 #pragma mark -
 #pragma mark Init
 
-+(instancetype)SH_barButtonItemWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem
-                                 withBlock:(SHBarButtonItemBlock)theBlock; {
-  
++(instancetype)completionBarButtonItemWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem
+                                                    withBlock:(SHBarButtonItemBlock)theBlock; {
+    
   UIBarButtonItem * barButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:systemItem
                                                                                    target:nil
                                                                                    action:nil];
-  [barButtonItem SH_addBlock:theBlock];
+  [barButtonItem completionAddBlock:theBlock];
   return barButtonItem;
 }
 
-+(instancetype)SH_barButtonItemWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style
-                   withBlock:(SHBarButtonItemBlock)theBlock; {
++(instancetype)completionBarButtonItemWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style
+                                      withBlock:(SHBarButtonItemBlock)theBlock; {
   
   UIBarButtonItem * barButtonItem =  [[UIBarButtonItem alloc] initWithImage:image
                                                                       style:style
                                                                      target:nil
                                                                      action:nil];
-  [barButtonItem SH_addBlock:theBlock];
+  [barButtonItem completionAddBlock:theBlock];
   return barButtonItem;
   
 }
 
-+(instancetype)SH_barButtonItemWithTitle:(NSString *)title style:(UIBarButtonItemStyle)style
-                   withBlock:(SHBarButtonItemBlock)theBlock; {
++(instancetype)completionBarButtonItemWithTitle:(NSString *)title style:(UIBarButtonItemStyle)style
+                                      withBlock:(SHBarButtonItemBlock)theBlock; {
   
   UIBarButtonItem * barButtonItem =  [[UIBarButtonItem alloc] initWithTitle:title
                                                                       style:style
                                                                      target:nil
                                                                      action:nil];
-  [barButtonItem SH_addBlock:theBlock];
+  [barButtonItem completionAddBlock:theBlock];
   return barButtonItem;
   
 }
 
 #pragma mark -
 #pragma mark Add
--(void)SH_addBlock:(SHBarButtonItemBlock)theBlock; {
+-(void)completionAddBlock:(SHBarButtonItemBlock)theBlock; {
   NSAssert(theBlock, @"theBlock is required");
   SHBarButtonItemBlock block = [theBlock copy];
   self.target = [SHBarButtonItemBlocksManager sharedManager];
@@ -121,13 +121,13 @@
 
 #pragma mark -
 #pragma mark Remove
--(void)SH_removeBlock:(SHBarButtonItemBlock)theBlock; {
+-(void)completionRemoveBlock:(SHBarButtonItemBlock)theBlock; {
   [self.setOfBlocks removeObject:theBlock];
-  if(self.setOfBlocks.count == 0) [self SH_removeAllBlocks];
+  if(self.setOfBlocks.count == 0) [self completionRemoveAllBlocks];
 
 }
 
--(void)SH_removeAllBlocks; {
+-(void)completionRemoveAllBlocks; {
   self.setOfBlocks = nil;
 }
 
@@ -139,7 +139,7 @@
 
 #pragma mark -
 #pragma mark Getters
--(NSSet *)SH_blocks; {
+-(NSSet *)completionBlocks; {
   return self.setOfBlocks.copy;
 }
 

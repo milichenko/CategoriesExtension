@@ -14,29 +14,29 @@ typedef void (^SHBarButtonItemBlock)(UIBarButtonItem * sender);
 
 #pragma mark -
 #pragma mark Init
-+(instancetype)SH_barButtonItemWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem
-                                 withBlock:(SHBarButtonItemBlock)theBlock;
++(instancetype)completionBarButtonItemWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem
+                                                    withBlock:(SHBarButtonItemBlock)theBlock;
 
-+(instancetype)SH_barButtonItemWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style
-                   withBlock:(SHBarButtonItemBlock)theBlock;
++(instancetype)completionBarButtonItemWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style
+                                      withBlock:(SHBarButtonItemBlock)theBlock;
 
-+(instancetype)SH_barButtonItemWithTitle:(NSString *)title style:(UIBarButtonItemStyle)style
-                   withBlock:(SHBarButtonItemBlock)theBlock;
++(instancetype)completionBarButtonItemWithTitle:(NSString *)title style:(UIBarButtonItemStyle)style
+                                      withBlock:(SHBarButtonItemBlock)theBlock;
 
 #pragma mark -
 #pragma mark Add
--(void)SH_addBlock:(SHBarButtonItemBlock)theBlock;
+-(void)completionAddBlock:(SHBarButtonItemBlock)theBlock;
 
 #pragma mark -
 #pragma mark Remove
--(void)SH_removeBlock:(SHBarButtonItemBlock)theBlock;
--(void)SH_removeAllBlocks;
+-(void)completionRemoveBlock:(SHBarButtonItemBlock)theBlock;
+-(void)completionRemoveAllBlocks;
 
 #pragma mark -
 #pragma mark Properties
 
 #pragma mark -
 #pragma mark Getters
-@property(nonatomic,readonly) NSSet * SH_blocks;
+@property(nonatomic,readonly) NSSet * completionBlocks;
 
 @end
