@@ -324,7 +324,6 @@
 				63EF8C331961643B0053E7BE /* UIImage */,
 				63EF8C49196164C10053E7BE /* UITabBarController */,
 				63EF8C51196165320053E7BE /* UIView */,
-				63EF8C7719616A110053E7BE /* UIViewController */,
 				63EF8C8D1961815E0053E7BE /* UIWebView */,
 			);
 			name = OtherCategories;
@@ -660,13 +659,6 @@
 				63EF8C751961699F0053E7BE /* UINavigationController+SHNavigationControllerBlocks.m */,
 			);
 			path = UINavigationController;
-			sourceTree = "<group>";
-		};
-		63EF8C7719616A110053E7BE /* UIViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		63EF8C80196180940053E7BE /* UITextField */ = {
